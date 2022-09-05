@@ -1,0 +1,26 @@
+:root {
+  --color-primary: rgb(66, 110, 230);
+  --color-primary-light: rgb(106, 145, 255);
+  --color-ascent: rgb(253, 183, 43);
+  --color-white: #dedfe9;
+  --color-black: #1e1e1e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
