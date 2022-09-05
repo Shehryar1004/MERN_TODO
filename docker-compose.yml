@@ -1,0 +1,49 @@
+version: "3"
+services: 
+  client:
+    build: ./client
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client/src:/app/src:ro
+    env_file:
+      - ./client/.env
+    depends_on:
+      - server
+    networks:
+      - app-network
+
+  server:
+    build: ./server
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./server:/app:ro
+    environment:
+      - DB_CONNECTION=mongodb://database:27017
+      - DB_NAME=todo
+    env_file:
+      - ./server/.env
+    depends_on:
+      - database
+    networks:
+      - app-network
+
+  database:
+    image: mongo
+    volumes:
+      - database-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+      
+networks:
+  app-network:
+    driver: bridge
+    
+volumes:
+  database-data:
+  node_modules:
+  web-root:
+    driver: local
